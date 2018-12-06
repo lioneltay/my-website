@@ -11,17 +11,9 @@ before_install:
 script:
   - npm test -- --coverage
 
-# after_success:
-#   -
-#   - >-
-#     npm run build
-#     aws s3 rm s3://lioneltay.com --recursive &&
-#     aws s3 cp ./dist s3://lioneltay.com --recursive &&
-#     aws cloudfront create-invalidation --distribution-id E1MWKWSMZFSYWH --paths /index.html
-
 deploy:
   - provider: script
-    script: bash scripts/deploy.sh
+    script: bash scripts/travis/production-deploy.sh
     skip_cleanup: true
     on:
       branch: master
