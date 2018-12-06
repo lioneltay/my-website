@@ -20,7 +20,7 @@ script:
 #     aws cloudfront create-invalidation --distribution-id E1MWKWSMZFSYWH --paths /index.html
 
 deploy:
-  provider: script
-  script: bash scripts/deploy.sh
-  on:
-    branch: master
+  - provider: script
+    script: bash scripts/deploy.sh
+    on:
+      branch: master
