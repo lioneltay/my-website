@@ -9,7 +9,7 @@ before_install:
   - aws --version
 
 script:
-  - npm test
+  - npm test -- -- coverage
 
 after_success:
   - npm run build
