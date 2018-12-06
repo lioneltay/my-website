@@ -4,6 +4,10 @@ language: node_js
 node_js:
   - node
 
+before_install:
+  - pip install awscli --upgrade --user
+  - aws --version
+
 script:
   - npm test
 
