@@ -1,6 +1,8 @@
 {
   "name": "my-website",
   "version": "1.0.0",
+  "repository": "https://github.com/lioneltay/my-website",
+  "homepage": "lioneltay.com",
   "description": "",
   "main": "index.js",
   "scripts": {
