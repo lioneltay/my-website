@@ -1,4 +1,5 @@
 const path = require("path")
+const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 const relativeToRoot = relativePath =>
@@ -13,6 +14,7 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: relativeToRoot("./dist"),
+    publicPath: "/",
   },
 
   resolve: {
@@ -41,10 +43,17 @@ module.exports = {
     ],
   },
 
+  devServer: {
+    hot: true,
+    port: 3000,
+    historyApiFallback: true,
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "index.html",
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 }
