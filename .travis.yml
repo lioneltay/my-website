@@ -1,0 +1,14 @@
+sudo: required
+
+language: node_js
+node_js:
+  - node
+
+before_install:
+  - npm install
+
+script:
+  - npm test
+
+after_success:
+  - echo All is Well!
