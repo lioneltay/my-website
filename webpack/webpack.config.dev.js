@@ -5,42 +5,16 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const relativeToRoot = relativePath =>
   path.resolve(__dirname, "../", relativePath)
 
+const common_config = require("./webpack.config.common")
+
 module.exports = {
+  ...common_config,
   mode: "development",
-  entry: {
-    main: relativeToRoot("./src/index.tsx"),
-  },
 
   output: {
     filename: "[name].js",
     path: relativeToRoot("./dist"),
     publicPath: "/",
-  },
-
-  resolve: {
-    extensions: [".mjs", ".js", ".jsx", ".ts", ".tsx", ".json"],
-    modules: [path.resolve(__dirname, relativeToRoot("./src")), "node_modules"],
-  },
-
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              cacheDirectory: true,
-            },
-          },
-          {
-            loader: "ts-loader",
-            options: { transpileOnly: true },
-          },
-        ],
-      },
-    ],
   },
 
   devServer: {

@@ -14,8 +14,6 @@ function fontWeight() {
     .join("\n")
 }
 
-console.log(fontWeight())
-
 export default css`
   ${fontWeight()}
 `

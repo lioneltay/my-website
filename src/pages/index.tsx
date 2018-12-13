@@ -17,12 +17,11 @@ export default class Root extends React.Component {
       <Container>
         <Header />
 
-        <URLBreadcrumbs className="m-2" />
-
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
-          <Route exact path="/sandbox" component={Sandbox} />
+          <Route path="/sandbox" component={Sandbox} />
+          <Route render={() => <URLBreadcrumbs className="m-2" />} />
         </Switch>
       </Container>
     )
