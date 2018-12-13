@@ -1,6 +1,5 @@
 const path = require("path")
 const webpack = require("webpack")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 const relativeToRoot = relativePath =>
   path.resolve(__dirname, "../", relativePath)
@@ -23,11 +22,5 @@ module.exports = {
     historyApiFallback: true,
   },
 
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html",
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+  plugins: [...common_config.plugins, new webpack.HotModuleReplacementPlugin()],
 }

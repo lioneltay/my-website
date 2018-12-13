@@ -1,5 +1,4 @@
 const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 const relativeToRoot = relativePath =>
   path.resolve(__dirname, "../", relativePath)
@@ -16,10 +15,5 @@ module.exports = {
     publicPath: "/",
   },
 
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html",
-    }),
-  ],
+  plugins: [...common_config.plugins],
 }
